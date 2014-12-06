@@ -1604,6 +1604,13 @@ otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 vrtoxin: otapackage
 
+ifeq ($(CHANGELOG),true)
+# Generate changelog
+	@echo -e ${CL_GRN}"Generating Changelog"${CL_RST}
+	$(hide) ./vendor/vrtoxin/utils/changelog.sh
+	$(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(TARGET_PRODUCT)-Changelog.txt
+endif
+
 endif    # recovery_fstab is defined
 endif    # TARGET_NO_KERNEL != true
 endif    # TARGET_DEVICE != generic*
