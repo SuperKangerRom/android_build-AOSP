@@ -4,7 +4,7 @@
 
 # Setting LOCAL_DEX_PREOPT based on WITH_DEXPREOPT, LOCAL_DEX_PREOPT, etc
 LOCAL_DEX_PREOPT := $(strip $(LOCAL_DEX_PREOPT))
-ifneq (true,$(WITH_DEXPREOPT))
+ifneq (very_true,$(WITH_DEXPREOPT))
   LOCAL_DEX_PREOPT :=
 else # WITH_DEXPREOPT=true
   ifeq (,$(TARGET_BUILD_APPS)) # TARGET_BUILD_APPS empty
@@ -108,7 +108,7 @@ $(built_odex): PRIVATE_DEX_PREOPT_FLAGS := $(LOCAL_DEX_PREOPT_FLAGS)
 $(installed_odex) : $(dir $(LOCAL_INSTALLED_MODULE))%$(notdir $(word 1,$(installed_odex))) \
                   : $(dir $(LOCAL_BUILT_MODULE))%$(notdir $(word 1,$(built_odex))) \
     | $(ACP)
-	@echo "Install: $@"
+	@echo -e ${CL_CYN}"Install: $@"${CL_RST}
 	$(copy-file-to-target)
 endif
 

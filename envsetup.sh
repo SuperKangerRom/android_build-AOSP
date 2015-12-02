@@ -178,6 +178,15 @@ function setpaths()
     export ANDROID_DEV_SCRIPTS=$T/development/scripts:$T/prebuilts/devtools/tools:$T/external/selinux/prebuilts/bin
     export ANDROID_BUILD_PATHS=$(get_build_var ANDROID_BUILD_PATHS):$ANDROID_TOOLCHAIN:$ANDROID_TOOLCHAIN_2ND_ARCH:$ANDROID_KERNEL_TOOLCHAIN_PATH$ANDROID_DEV_SCRIPTS:
 
+    # VRToxin Optimizations
+    export VRTOXIN_BLOCK_BUILD=$(get_build_var VRTOXIN_BLOCK_BUILD)
+    export STRICT_ALIASING=$(get_build_var STRICT_ALIASING)
+    export CLANG_O3=$(get_build_var CLANG_O3)
+    export KRAIT_TUNINGS=$(get_build_var KRAIT_TUNINGS)
+    export ENABLE_GCCONLY=$(get_build_var ENABLE_GCCONLY)
+    export GRAPHITE_OPTS=$(get_build_var GRAPHITE_OPTS)
+    export USE_PIPE=$(get_build_var USE_PIPE)
+
     # If prebuilts/android-emulator/<system>/ exists, prepend it to our PATH
     # to ensure that the corresponding 'emulator' binaries are used.
     case $(uname -s) in
@@ -458,14 +467,6 @@ function add_lunch_combo()
     done
     LUNCH_MENU_CHOICES=(${LUNCH_MENU_CHOICES[@]} $new_combo)
 }
-
-# add the default one here
-add_lunch_combo aosp_arm-eng
-add_lunch_combo aosp_arm64-eng
-add_lunch_combo aosp_mips-eng
-add_lunch_combo aosp_mips64-eng
-add_lunch_combo aosp_x86-eng
-add_lunch_combo aosp_x86_64-eng
 
 function print_lunch_menu()
 {

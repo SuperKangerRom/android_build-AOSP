@@ -25,7 +25,6 @@ PRODUCT_PACKAGES += \
     android.policy \
     android.test.runner \
     app_process \
-    applypatch \
     blkid \
     bmgr \
     bugreport \
@@ -51,7 +50,6 @@ PRODUCT_PACKAGES += \
     libcamera_client \
     libcameraservice \
     libdl \
-    libdrmclearkeyplugin \
     libeffectproxy \
     libeffects \
     libinput \
@@ -122,6 +120,11 @@ PRODUCT_PACKAGES += \
     vdc \
     vold \
     wm
+
+ifneq ($(filter uber_flounder uber_hammerhead uber_shamu,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += \
+    libdrmclearkeyplugin 
+endif
 
 
 PRODUCT_COPY_FILES := $(call add-to-product-copy-files-if-exists,\
