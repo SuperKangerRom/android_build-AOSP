@@ -967,7 +967,7 @@ INTERNAL_SYSTEMIMAGE_FILES := $(filter $(TARGET_OUT)/%, \
 
 systemimage-squisher: $(INTERNAL_SYSTEMIMAGE_FILES)
 	@echo -e "Optimizing PNGs to Shrink ROM Size!"
-	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/cm/tools/squisher
+	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/vrtoxin/tools/squisher
 
 .PHONY: systemimage-squisher
 
