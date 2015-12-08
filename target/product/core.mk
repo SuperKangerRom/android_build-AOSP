@@ -21,7 +21,6 @@
 # core_tiny.mk in addition to core_minimal.mk.
 
 PRODUCT_PACKAGES += \
-    Calculator \
     CalendarProvider \
     CaptivePortalLogin \
     CertInstaller \
@@ -29,6 +28,7 @@ PRODUCT_PACKAGES += \
     DeskClock \
     DocumentsUI \
     DownloadProviderUi \
+    ExactCalculator \
     ExternalStorageProvider \
     FusedLocation \
     InputDevices \
