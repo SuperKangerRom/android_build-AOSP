@@ -187,6 +187,8 @@ function setpaths()
     export GRAPHITE_OPTS=$(get_build_var GRAPHITE_OPTS)
     export USE_PIPE=$(get_build_var USE_PIPE)
     export POLLY_OPTIMIZATION=$(get_build_var POLLY_OPTIMIZATION)
+    export ENABLE_SANITIZE=$(get_build_var ENABLE_SANITIZE)
+
 
     # If prebuilts/android-emulator/<system>/ exists, prepend it to our PATH
     # to ensure that the corresponding 'emulator' binaries are used.

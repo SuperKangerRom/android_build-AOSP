@@ -125,6 +125,11 @@ $(info   POLLY_OPTIMIZATION=$(POLLY_OPTIMIZATION))
 else
 $(info   POLLY_OPTIMIZATION=false)
 endif
+ifdef    ENABLE_SANITIZE
+$(info   ENABLE_SANITIZE=$(ENABLE_SANITIZE))
+else
+$(info   ENABLE_SANITIZE=false)
+endif
 $(info   HOST_ARCH=$(HOST_ARCH))
 $(info   HOST_OS=$(HOST_OS))
 $(info   HOST_OS_EXTRA=$(HOST_OS_EXTRA))
