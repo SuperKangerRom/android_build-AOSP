@@ -196,6 +196,7 @@ function setpaths()
     export USE_PIPE=$(get_build_var USE_PIPE)
     export POLLY_OPTIMIZATION=$(get_build_var POLLY_OPTIMIZATION)
     export ENABLE_SANITIZE=$(get_build_var ENABLE_SANITIZE)
+    export TARGET_DRAGONTC_VERSION=$(get_build_var TARGET_DRAGONTC_VERSION)
 
 
     # If prebuilts/android-emulator/<system>/ exists, prepend it to our PATH
