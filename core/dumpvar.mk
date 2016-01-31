@@ -64,7 +64,7 @@ endif # CALLED_FROM_SETUP
 
 ifneq ($(PRINT_BUILD_CONFIG),)
 HOST_OS_EXTRA:=$(shell python -c "import platform; print(platform.platform())")
-$(info ============================================)
+$(info =======================================================)
 $(info   PLATFORM_VERSION_CODENAME=$(PLATFORM_VERSION_CODENAME))
 $(info   PLATFORM_VERSION=$(PLATFORM_VERSION))
 $(info   TARGET_PRODUCT=$(TARGET_PRODUCT))
@@ -84,6 +84,10 @@ ifdef    TARGET_GCC_VERSION_ARM
 $(info   TARGET_KERNEL_TOOLCHAIN=$(TARGET_GCC_VERSION_ARM))
 else
 $(info   TARGET_KERNEL_TOOLCHAIN=$(TARGET_GCC_VERSION))
+endif
+ifeq     ($(TARGET_DRAGONTC_VERSION),)
+else
+$(info   CLANG_VERSION=$(TARGET_DRAGONTC_VERSION))
 endif
 ifdef    VRTOXIN_BLOCK_BUILD
 $(info   VRTOXIN_BLOCK_BUILD=$(VRTOXIN_BLOCK_BUILD))
@@ -132,9 +136,11 @@ $(info   ENABLE_SANITIZE=false)
 endif
 $(info   HOST_ARCH=$(HOST_ARCH))
 $(info   HOST_OS=$(HOST_OS))
+$(info   BUILD_ID=$(BUILD_ID))
 $(info   HOST_OS_EXTRA=$(HOST_OS_EXTRA))
 $(info   HOST_BUILD_TYPE=$(HOST_BUILD_TYPE))
-$(info   BUILD_ID=$(BUILD_ID))
 $(info   OUT_DIR=$(OUT_DIR))
-$(info ============================================)
+$(info =======================================================)
 endif
+
+
