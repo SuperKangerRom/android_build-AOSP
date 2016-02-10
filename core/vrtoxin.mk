@@ -50,7 +50,7 @@ NOOP_BLUETOOTH := \
 	hwcomposer.msm8084 \
 	audio.primary.msm8084
 
-NO_OPTIMIZATIONS += \
+NO_OPTIMIZATIONS := \
 	libbypass \
 	libperfprofdcore \
 	libwebrtc_spl \
@@ -237,6 +237,17 @@ STRICT_GCC_LEVEL := \
 
 STRICT_CLANG_LEVEL := \
 	-Wstrict-aliasing=2
+
+# Cortex Tuning
+LOCAL_DISABLE_CORTEX := \
+	bluetooth.default 
+
+ifeq (arm,$(TARGET_ARCH))
+CORTEX_FLAGS := \
+        -mcpu=cortex-a57.cortex-a53 \
+        -mtune=cortex-a57.cortex-a53
+endif
+
 
 # Krait Tunings
 LOCAL_DISABLE_KRAIT := \
