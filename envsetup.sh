@@ -197,6 +197,7 @@ function setpaths()
     export POLLY_OPTIMIZATION=$(get_build_var POLLY_OPTIMIZATION)
     export ENABLE_SANITIZE=$(get_build_var ENABLE_SANITIZE)
     export TARGET_DRAGONTC_VERSION=$(get_build_var TARGET_DRAGONTC_VERSION)
+    export CORTEX_TUNINGS=$(get_build_var CORTEX_TUNINGS)
 
 
     # If prebuilts/android-emulator/<system>/ exists, prepend it to our PATH

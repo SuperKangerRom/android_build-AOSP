@@ -134,6 +134,11 @@ $(info   ENABLE_SANITIZE=$(ENABLE_SANITIZE))
 else
 $(info   ENABLE_SANITIZE=false)
 endif
+ifdef    CORTEX_TUNINGS
+$(info   CORTEX_TUNINGS=$(CORTEX_TUNINGS))
+else
+$(info   CORTEX_TUNINGS=false)
+endif
 $(info   HOST_ARCH=$(HOST_ARCH))
 $(info   HOST_OS=$(HOST_OS))
 $(info   BUILD_ID=$(BUILD_ID))
