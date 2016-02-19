@@ -1,8 +1,16 @@
 # Clang flags for arm arch, target or host.
 
-CLANG_CONFIG_arm_EXTRA_ASFLAGS :=
+CLANG_CONFIG_arm_EXTRA_ASFLAGS := \
+  -no-integrated-as
 
-CLANG_CONFIG_arm_EXTRA_CFLAGS :=
+CLANG_CONFIG_arm_EXTRA_CFLAGS := \
+  -no-integrated-as
+
+CLANG_CONFIG_arm_EXTRA_CPPFLAGS := \
+  -no-integrated-as
+
+CLANG_CONFIG_arm_EXTRA_LDFLAGS := \
+  -no-integrated-as
 
 ifneq (,$(filter krait,$(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)))
   # Android's clang support's krait as a CPU whereas GCC doesn't. Specify
@@ -13,15 +21,6 @@ ifneq (,$(filter krait,$(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)))
     CLANG_CONFIG_arm_EXTRA_CFLAGS += -mcpu=krait
   endif
 endif
-
-ifeq ($(HOST_OS),darwin)
-  # Darwin is really bad at dealing with idiv/sdiv. Don't use krait on Darwin.
-  CLANG_CONFIG_arm_EXTRA_CFLAGS += -mcpu=cortex-a9
-endif
-
-CLANG_CONFIG_arm_EXTRA_CPPFLAGS :=
-
-CLANG_CONFIG_arm_EXTRA_LDFLAGS :=
 
 # Include common unknown flags
 CLANG_CONFIG_arm_UNKNOWN_CFLAGS := \
@@ -37,9 +36,15 @@ CLANG_CONFIG_arm_UNKNOWN_CFLAGS := \
   -fno-move-loop-invariants \
   -fno-partial-inlining \
   -fno-strict-volatile-bitfields \
-  -fno-tree-copy-prop \
-  -fno-tree-loop-optimize \
-  -Wa,--noexecstack
+  -fno-align-jumps \
+  -mfpu=neon-vfpv4 \
+  -Wno-unused-local-typedefs \
+  -fpredictive-commoning \
+  -ftree-loop-distribute-patterns \
+  -fvect-cost-model \
+  -ftree-partial-pre \
+  -fipa-cp-clone \
+  -mvectorize-with-neon-quad
 
 define subst-clang-incompatible-arm-flags
   $(subst -march=armv5te,-march=armv5t,\
