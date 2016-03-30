@@ -111,6 +111,18 @@ NO_OPTIMIZATIONS := \
 	libxml2 \
 	$(NOOP_BLUETOOTH)
 
+NO_ART_OPTS := \
+	libart \
+	libartd \
+	libart-disassembler \
+	libart-compiler \
+	libsigchain \
+	dalvikvm \
+	dex2oat \
+	dex2oatd \
+	oatdump \
+	patchoat
+
 #Strict Aliasing
 LOCAL_DISABLE_STRICT := \
 	libc_bionic \
@@ -214,6 +226,8 @@ LOCAL_FORCE_DISABLE_STRICT := \
 	libbt-brcm_stack \
 	libandroid_runtime \
 	libandroidfw \
+	libjemalloc \
+	libmediandk \
 	libosi \
 	libnetlink \
 	clatd \
@@ -221,6 +235,7 @@ LOCAL_FORCE_DISABLE_STRICT := \
 	libc_nomalloc \
 	linker \
 	libc_malloc \
+	libRS \
 	sensors.flounder \
 	libnvvisualizer \
 	libiprouteutil
@@ -304,6 +319,7 @@ endif
 
 # Graphite
 LOCAL_DISABLE_GRAPHITE := \
+	libart \
 	libunwind \
 	libFFTEm \
 	libicui18n \
@@ -311,7 +327,6 @@ LOCAL_DISABLE_GRAPHITE := \
 	libvpx \
 	libmedia_jni \
 	libstagefright_mp3dec \
-	libart \
 	libstagefright_amrwbenc \
 	libpdfium \
 	libpdfiumcore \
@@ -323,7 +338,22 @@ LOCAL_DISABLE_GRAPHITE := \
 	libwebrtc_spl \
 	libpcap \
 	libFraunhoferAAC \
-	libhwui
+	libinput \
+	libncurses \
+	libandroid_runtime \
+	libselinux \
+	libharfbuzz_ng \
+	libjemalloc \
+	libwebp-decode \
+	libwebp-encode \
+	libsfntly \
+	libwebrtc_apm_utility \
+	libmediandk \
+	libmmcamera_interface_32 \
+	libmmjpeg_interface_32 \
+	libmmjpeg_interface \
+	libhwui \
+	$(NO_ART_OPTS)
 
 GRAPHITE_FLAGS := \
 	-fgraphite \
@@ -345,5 +375,6 @@ LOCAL_DISABLE_PIPE := \
 DISABLE_SANITIZE_LEAK := \
 	libc_dns \
 	libc_tzcode \
+	$(NO_ART_OPTS) \
 	$(NOOP_BLUETOOTH) \
 	$(NO_OPTIMIZATIONS)
