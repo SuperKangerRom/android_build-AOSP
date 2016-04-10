@@ -78,6 +78,9 @@ DISABLE_POLLY_arm64 := \
   libbccSupport \
   libpng \
   libfuse \
+  libcryptfslollipop \
+  libscrypttwrp_static \
+  libminuitwrp \
   libLLVMAsmParser \
   libLLVMBitReader \
   libLLVMCodeGen \
