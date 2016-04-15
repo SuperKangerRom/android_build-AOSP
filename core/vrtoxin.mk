@@ -206,6 +206,7 @@ LOCAL_DISABLE_STRICT := \
 	linker \
 	sensors.flounder \
 	libnvvisualizer \
+        tcpdump \
 	libskia \
 	libiprouteutil
 
@@ -236,6 +237,7 @@ LOCAL_FORCE_DISABLE_STRICT := \
 	linker \
 	libc_malloc \
 	libRS \
+        tcpdump \
 	sensors.flounder \
 	libnvvisualizer \
 	libiprouteutil
